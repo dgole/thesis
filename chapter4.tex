@@ -1,0 +1,138 @@
+\chapter{The Influence of Vertical Temperature Gradients on the Turbulent Structure of Protoplanetary Disks}
+\label{adad}
+
+
+
+
+\section{Introduction} 
+Disks around young stars play a crucial role in star and planet formation processes.  These {\it protoplanetary disks} actively accrete their gas onto the central star, contributing to the young star's growth, and contain the rocky building blocks for planets to form.  
+Both the accretion of gas onto the star and the processes that produce planets are intimately tied to {disk turbulence} driven by the magnetorotational instability \cite[MRI;][]{balbus91,balbus98}.  
+
+In fully ionized disks, such as those around black holes, the MRI is very efficient at producing turbulence and driving accretion.  However, protoplanetary disks are significantly colder than their black hole counterparts and consequently have a lower ionization fraction throughout large regions of the disk.  Since strong coupling of the gas to magnetic fields is crucial for the MRI to operate, there can be extensive regions of no MRI activity in such disks.  In fact, for radial distances larger than $\sim$0.1 AU, the temperature of the gas is simply too low for thermal ionization \citep{umebayashi83}.  Instead, the disk surface layers (far from the disk mid-plane) are ionized by cosmic rays \citep{gammie96}, stellar X-rays \citep{igea99}, and stellar FUV photons \citep{perez-becker11b}.  In the outer regions of the disk, the dominant non-ideal MHD effect from the large fraction of neutrals is ambipolar diffusion \citep{armitage11,turner14}.  The current paradigm for accretion in this situation is a layered disk model, with most of the accretion occurring in the ionized and turbulent outer layers and little to no accretion at the mid-plane of the disk.
+
+Observations revealing the structure of protoplanetary disks are difficult to make.  Most of the disk is optically thick, only the surface layer is observable in most visible and infrared wavelengths.  Additionally, the disks are relatively small and far away.  Spatially resolving the disks requires spatial resolution significantly better than $\sim 1$ arc-second, which is unachievable with current visible telescopes.  These problems can both be overcome with the Atacama Large Millimeter Array (ALMA).  ALMA uses an array of dishes as an interferometer to achieve very high spatial resolution.  The optical thickness problem is worked around by observing emission lines from rare molecules like CO that have a smaller optical depth.  \cite{flaherty15} used ALMA to observe various CO emission lines to probe various depths into the disk.  The characteristics of these lines can be used to measure the turbulent velocity of the gas as a function of height.  Thus, for the first time we are able to directly observe the vertical structure of a protoplanetary disk.  
+
+The Flaherty et. al. observations of HD 163296 find that the turbulent motions are about an magnitude slower than expected from simulations, putting the layered-accretion paradigm under question and motivating theorists to re-think the vertical structure of the disk.   One factor that has not been well studied in 3D simulations is the vertical temperature profile of the disk.  In the outer regions of the disk (large radii), the temperature profile is determined primarily by radiation heating the surface layers of the disk.  This energy then propagates towards the mid-plane, where it is cooler.  This temperature profile influences the density profile, causing the surface layers to be less dense.  In the naive approximation that the turbulent kinetic energy is constant as a function of height, the velocity of the turbulence would be different than in the isothermal case even just due to the change in density.  This motivates the study of vertical temperature profiles as an essential component of understanding the turbulent velocity profile of the disk. 
+
+
+
+
+
+\section{Numerical Algorithm}
+We compute the structure of Ohmic dead zones using {\sc Athena}. {\sc Athena} is a second-order accurate Godunov flux-conservative code that uses constrained transport \cite[CT;][]{evans88} to enforce the $\nabla \cdot \mathbf{B} = 0$ constraint, the
+third-order in space piecewise parabolic method (PPM) of \cite{colella84} for spatial reconstruction, and the HLLD Riemann solver \citep{miyoshi05,mignone07} to calculate numerical fluxes.  A full description of the {\sc Athena} algorithm
+along with results showing the code's performance on various test problems can be found in \cite{gardiner05}, \cite{gardiner08}, and \cite{stone08}.
+
+We employ the shearing box approximation to simulate a small, co-rotating patch of an accretion disk.  Taking the size of the shearing box to be small relative to the distance from the central object, we define Cartesian coordinates $(x, y, z)$ in terms of the cylindrical coordinates ($R,\phi,z^\prime$) such that $x=R-R_0$, $y=R_0\phi$, and $z = z^\prime$.  The box co-rotates about the central object with angular velocity $\Omega$, corresponding to the Keplerian angular velocity at $R_0$. 
+The equations of resistive MHD in the shearing box approximation are,
+\begin{subequations}
+\begin{equation}
+\frac{\partial \rho}{\partial t} + \nabla \cdot (\rho \mathbf{v}) = 0, \\
+\end{equation}
+\begin{equation}
+\frac{\partial (\rho \mathbf{v})}{\partial t} + \nabla \cdot (\rho \mathbf{v} \mathbf{v} - \mathbf{B} \mathbf{B} + \mathbf{\bar{\bar{I}}} \Pstar) =  \\ 2 q \rho \Omega^2 x \mathbf{\hat{i}} - \rho \Omega^2 z \mathbf{\hat{k}}  - 2 \Omega \mathbf{\hat{k}} \times \rho \mathbf{v}, \\
+\end{equation}
+\begin{equation}
+\frac{\partial \mathbf{B}}{\partial t} - \nabla \times (\mathbf{v} \times \mathbf{B}) - \eta \nabla^2 \mathbf{B} \ = 0. 
+\end{equation}
+\end{subequations}
+\noindent Here $\rho$ is the gas density, $\mathbf{B}$ is the magnetic field, $\Pstar$ is the total pressure (related to the magnetic field and the gas pressure, $P$, via $\Pstar = P + {\mathbf{B} \cdot \mathbf{B}}/{2}$), $\mathbf{\bar{\bar{I}}}$ is the identity tensor, $\mathbf{v}$ is the velocity, $\eta$ is the Ohmic resistivity, and $q$ is the shear parameter defined by $q=-d\ln{\Omega}/d\ln{R}$, which is $3/2$ in this case of a Keplerian disk.  An isothermal equation of state with a constant sound speed $c_s$ is used,   
+\begin{equation}
+P = \rho c_s^2.    
+\end{equation}
+We use a standard set of boundary conditions appropriate for the shearing box approximation. At the azimuthal boundaries we exploit the symmetry of the disk and apply periodic boundary conditions. At the radial boundaries we  apply shearing periodic boundaries, such that quantities that are remapped from one radial boundary to the other are  shifted in the azimuthal direction by the distance the boundaries have sheared relative to each other at the given time \citep{hawley95}. In the vertical direction, we employ the modified outflow boundary condition of \cite{simon13}, which are the standard outflow boundaries but with the gas density extrapolated exponentially into the ghost zones; this method reduces the artificial build-up of toroidal magnetic flux near the vertical boundaries.  Such outflow boundaries can lead to significant mass loss, particularly in the case of strong vertical magnetic flux \citep{simon13}.  However, such drastic mass loss is not observed in our simulations, consistent with expectations from our magnetic field geometry as described below. In general, these boundary conditions can break conservation, so methods described in \cite{stone10} are used in order to keep the correct variables conserved.   Furthermore, we employ Crank-Nicholson differencing to conserve epicyclic energy to machine precision. A full discussion of these methods and {\sc Athena}'s shearing box algorithm can be found in \cite{stone10}.\\              
+
+
+
+
+
+\section{Parameters and Initial Conditions} 
+
+
+\subsection{Box Size}
+We run all simulations using a domain size of $L_x \times L_y \times L_z = 2H \times 4H \times 8H$, where $H$ is the isothermal scale height.  Defining a scale height in the case of a disk with temperature varying as a function of z is not straight forward, but for convenience we will define it using the central (mid-plane) temperature and sound speed:
+\begin{equation}
+H = \sqrt{2} \frac{c_{s, \text{mid}}}{\Omega}.     
+\label{eq_H_definition}    
+\end{equation}
+
+
+\subsection{Initial Magnetic Field Configuration}
+We initialize the magnetic field to be  
+\begin{equation}
+\beta = \frac{2P}{B^2}.                   
+\end{equation}
+\noindent 
+Note that a factor of $4\pi$ has been subsumed into the definition of the magnetic pressure, following the standard definition of units in {\sc Athena} \citep{stone08}.
+
+
+\subsection{Resolution}
+The resolution required to resolve the relevant phenomena is primarily limited by the characteristic wavelength of the magnetorotational instability.  For the parameters we will be using, the wavelength is approximately given by $\lambda_\text{mri}/H = 10 \sqrt{3} \beta^{-1/2}$ , where $H$ is the pressure scale height of the disk and $\beta$ is the ratio of gas pressure to magnetic pressure.  We choose $\beta=10^4$ so that we are still in the "weak field" regime, but resolve the MRI as best as possible. This choice gives a characteristic wavelength of $\sim 0.17 H$.  We use a resolution of 60 zones per $H$, which gives about 10 zones per MRI wavelength and will be sufficient to resolve the instability and drive turbulence. 
+
+
+\subsection{Temperature Profile, Heating, and Cooling}
+The physics of heating and cooling processes in disks is quite complicated.  We will consider a rather simple prescription in this study.  The disk is heated by 2 broad mechanisms: dissipation of kinetic energy as the disk accretes (this happens primarily at the mid-plane region), and radiation incident on the coronal layers from outside sources.  The disk cools by radiating from the coronal layers.  At large radii, the radiative heating of the corona is dominant over the accretion heating at the mid-plane, resulting in a cool mid-plane and warm corona.  We will not simulate the physics of heating and cooling directly, but will rather employ optically thin heating and cooling towards a static, theoretical temperature profile.  The cooling/heating rate follows a Newtonian prescription with a characteristic cooling/heating time $t_{cool}$.
+
+
+We initialize the disk is in hydrostatic equilibrium.  In an vertically isothemal disk, balancing gravity against the gas pressure gradient yields a Gaussian density profile.  In this case with a varying temperature profile, the 
+
+\begin{equation}
+\rho(z) = \rho_0 \exp\left(\frac{-z^2}{H^2}\right).                  
+\end{equation}
+
+\noindent We set $\rho_0 = 1$ as the initial density at the mid-plane.  A density floor of $10^{-5}$ is applied to keep the Alfv\'en speed from getting too high (and thus the time step too small) in the region far from the mid-plane.  The density floor also prevents $\beta$ (defined below) from getting too low, which can cause numerical problems. We set 
+the constant isothermal sound speed $c_s=1/\sqrt{2}$, and choose the angular velocity to be $\Omega = 1$, which gives $H = 1$.
+
+ 
+In order to seed the MRI, we apply random perturbations to the gas pressure and velocity. Following the procedure used by \cite{hawley95}, the perturbations are uniformly distributed throughout the box and have zero mean.  Pressure perturbations are a maximum of $2.5 \%$ of the local pressure, and velocity perturbations are a maximum of $5\times 10^{-3}c_s$. We employ a uniform numerical resolution of 60 grid cells per $H$, giving a total resolution of $120\times240\times480$ zones per simulation.  
+
+
+\subsection{Resistivity Profile}
+a
+
+
+
+
+\newpage
+\section{1d Toy Model of  Vertical Strucutre}
+We will compare our results to a simple 1d toy model of the vertical profile of the magnetic field.  This model includes 2 types of diffusion: turbulent and ambipolar: 
+
+\begin{equation}
+\frac{\partial B}{\partial t} = (\eta_{\text{AD}} + \eta_{\text{turb}}) \frac{\partial^2 B}{\partial z^2}                   
+\end{equation}
+
+\noindent where the resistivities are given by:
+
+\begin{equation}
+\eta_{\text{turb}} = \frac{\alpha c_s h}{\text{Pr}}, \hspace{3mm} 
+\eta_{\text{AD}}   = \frac{B^2}{\Omega \rho (\text{Am})}.                   
+\end{equation}
+
+\noindent Note that $\eta_{\text{AD}}$ is a function of the quantity being diffused ($B$), and will be evolved self consistently as the field evolves.  
+
+The disk is stratified according to hydrostatic equilibrium and is isothermal. There will be 2 different zones with different diffusion coeffecients: midplane and corona.  In the ambipolar damped midplane region has $\text{Am}=1$ and $\alpha=10^{-4}$.  The MRI active corona has $\text{Am}=10^6$ and $\alpha=10^{-2}$.  Also in the corona, the MRI will cause the magnetic field to evolve towards a saturated state with $\beta=\beta_\text{sat}$.  We will set $\beta_\text{sat}=3$ usually, as this is where the field becomes to strong for the MRI to operate, as it is a weak field instability. 
+
+
+
+
+
+
+
+
+%\section{Saturation Time-scales}
+
+
+
+%\section{Transport Efficiency}
+
+
+
+%\section{Accretion Rates}
+
+
+
+%\subsection{Structure of the Turbulence}
+
+
+
+%\section{Conclusions}

@@ -1,0 +1,14 @@
+\chapter{Putting miscellaneous stuff here that might find a place in other chapters eventually}
+\label{misc}
+
+
+\section{Turbulence in a Strong Magnetic Field}
+Simulations of the MRI have shown that the level of turbulence generated is a function of the net poloidal field.  A fit to shearing box data yields:
+\begin{equation}
+\alpha = CLIP(\alpha_{min}, b_1 * \beta_z^{-b_2},\alpha_{max}), b_1=11, b_2=-0.53
+\end{equation}
+\noindent where $\beta$ is the usual plasma parameter 
+\begin{equation}
+\beta_z=P/B_z^2
+\end{equation} 
+and $P$ is the gas pressure.   The MRI still drives turbulence with no net-magnetic field, which leads to a minimum $\alpha$, $\alpha_{min} \approx 0.01$.  The maximum value of $\alpha$, $\alpha_{max}$, is taken to be 1.0.  This relationship couples the evolution of the magnetic field with the evolution of the surface density (which is proportional to the pressure). These two additional equations introduce two new unknowns: $\beta_z$ and $\alpha$.  Now, instead of needing to specify $\alpha$ a-priori, we can self consistently solve equations 3.1 through 3.11 for a specified $B_z$, which will be evolved using separate time-evolution equations. 

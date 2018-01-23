@@ -1,0 +1,88 @@
+\documentclass[defaultstyle,11pt]{thesis}
+
+\usepackage{amssymb}		% to get all AMS symbols
+\usepackage{graphicx}		% to insert figures
+\usepackage[round]{natbib}
+\bibliographystyle{plainnat}
+\usepackage{amsmath}
+\graphicspath{ 
+{figs/} 
+{figs/figsChapter2/} 
+{figs/figsChapter3/} 
+%{figs/figsChapter3/run5205/}
+%{figs/figsChapter3/run5206/}
+}
+\usepackage{deluxetable}
+
+
+%%%%%%%%%%%%   All the preamble material:   %%%%%%%%%%%%
+
+\title{Magnetic fields in disks something something dead zones}
+
+\author{Daniel. A.}{Gole}
+
+\otherdegrees{B.A., State University of New York, College at Geneseo, 2013 \\
+	      M.S., University of Colorado at Boulder, 2017}
+
+\degree{Doctor of Philosophy}		%  #1 {long descr.}
+	{Ph.D., Astrophysical Sciences}		%  #2 {short descr.}
+
+\dept{Department of}			%  #1 {designation}
+	{Astrophysical and Planetary Sciences}		%  #2 {name}
+
+\advisor{Prof.}				%  #1 {title}
+	{Ed Visor}			%  #2 {name}
+
+\reader{Prof. Reader1}		%  2nd person to sign thesis
+\readerThree{Prof. Reader2}		%  3rd person to sign thesis
+
+\abstract{  \OnePageChapter	% because it is very short
+Abstract placeholder...
+	}
+
+\dedication[Dedication]{	% NEVER use \OnePageChapter here.
+	To all of the fluffy kitties.
+	}
+
+\acknowledgements{	\OnePageChapter	% *MUST* BE ONLY ONE PAGE!
+We acknowledge support from NASA through grants NNX13AI58G, NNX14AB42G and NNX16AB42G (P.J.A), from the NSF through grant AST 1313021 (P.J.A.), and from grant HST-AR-12814 (P.J.A.) awarded by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., for NASA, under contract NAS 5-26555. J.B.S.'s support was provided in part under contract with the California Institute of Technology (Caltech) and the Jet Propulsion Laboratory (JPL) funded by NASA through the Sagan Fellowship Program executed by the NASA Exoplanet Science Institute. 
+This work utilized the Janus supercomputer, which is supported by the National Science Foundation (award number CNS-0821794), the University of Colorado Boulder, the University of Colorado Denver, and the National Center for Atmospheric Research. The Janus supercomputer is operated by the University of Colorado Boulder. S.H.L. acknowledges support from NASA grant NNX11AK61G.
+	}
+
+% \IRBprotocol{E927F29.001X}	% optional!
+
+%\ToCisShort	% use this only for 1-page Table of Contents
+
+\LoFisShort	% use this only for 1-page Table of Figures
+% \emptyLoF	% use this if there is no List of Figures
+
+\LoTisShort	% use this only for 1-page Table of Tables
+% \emptyLoT	% use this if there is no List of Tables
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%       BEGIN DOCUMENT...         %%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input macros.tex
+\input chapter1.tex
+\input chapter2.tex
+\input chapter3.tex
+\input chapter4.tex
+\input chapter5.tex
+\input chapterMisc.tex
+
+%%%%%%%%%   then the Bibliography, if any   %%%%%%%%%
+\bibliographystyle{plain}	% or "siam", or "alpha", etc.
+\nocite{*}		% list all refs in database, cited or not
+\bibliography{refs}		% Bib database in "refs.bib"
+
+%%%%%%%%%   then the Appendices, if any   %%%%%%%%%
+\appendix
+\input appendixA.tex
+%\input appendixB.tex
+
+
+\end{document}
+
