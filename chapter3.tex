@@ -194,10 +194,10 @@ Outside $r_{\text{co}}$, differential rotation will cause stellar field lines to
 
 Now we will consider the strength of this stellar contribution relative to the gas pressure and other possible magnetic fields in the disk.  We adopt a standard MMSN model for the disk's gas density and temperature as a function of radius.  Randomly oriented field within the disk might be expected to have a constant $\beta$, so we plot this for a plausible $\beta$ value of $10^4$.  Primordial net-field in the disk will approach a power law (Okuzumi).  We define this by defining $\beta_0$ at 1 AU and then extrapolating with the power law.
 
-\begin{figure}[h!]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.49\columnwidth]{figs/figsChapter3/FieldStrengthProfiles.png}
-\includegraphics[width=0.49\columnwidth]{figs/figsChapter3/BetaProfiles.png}
+\includegraphics[width=0.8\columnwidth]{figs/figsChapter3/FieldStrengthProfiles.png}
+\includegraphics[width=0.8\columnwidth]{figs/figsChapter3/BetaProfiles.png}
 \caption{Field strength profiles. Note: doesn't show all the things I claim it shows in the text yet.}
 \label{fieldStrengthProfiles}
 \end{figure}
@@ -217,7 +217,7 @@ A simple active disk model with no incident radiation yields the temperature pro
 
 The Chiang-Goldreich model is more sophisticated, accounting for incident radiation and dust.  Their model is only valid for $r>0.4$, but at this radius for a 0.5 solar mass star the model yields a temperature of about 220K, well below the 800K required for ionization.  So it's very reasonable to expect non-ideal MHD inside 1 AU for sub-solar-mass stars.  This also implies that in some situations the stellar dipole will contribute a dominant amount of net-flux directly into a Hall dead zone, not relying on transport within the disk for the flux to reach the dead zone.
 
-\begin{figure}[h!]
+\begin{figure}[p]
 \centering
 \includegraphics[width=0.8\columnwidth]{figs/figsChapter3/TemperatureProfiles.png}
 \caption{Models of the temperature profile of an acitve disk around a sun-like star.}
@@ -241,10 +241,10 @@ For the aligned disk field and aligned stellar dipole, the Hall DZ is in the act
 
 For the anti-aligned disk field and anti-aligned stellar dipole, the Hall DZ is in the dead state and remains that way.  This causes the transport velocities in this region to be much smaller than in the interior region.  The anti-aligned field contributed by the star is easily diffused to the inner edge of the DZ, but then builds up there as it makes it's way out into the DZ much more slowly.
 
-\begin{figure}[h!]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.45\columnwidth]{figs/figsChapter3/run3113/MST1.png}
-\includegraphics[width=0.45\columnwidth]{figs/figsChapter3/run3112/MST1.png}
+\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run3113/MST1.png}
+\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run3112/MST1.png}
 \caption{}
 \label{fiStExample}
 \end{figure}
@@ -258,9 +258,9 @@ In this case, the Hall DZ transitions from active to dead.  The extent of the Ha
 \end{enumerate}
 In our model, the stellar dipole contributes the same total amount of net flux to the disk regardless of the length of the stellar cycle.  The diffusion time and the accretion time are different, so it is likely that not all activated parts of the dead zone will be able to accrete all of their excess mass.
 
-\begin{figure}[h!]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.6\columnwidth]{figs/figsChapter3/run3101/MST1.png}
+\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run3101/MST1.png}
 \caption{The}
 \label{fiStExample}
 \end{figure}
@@ -268,9 +268,9 @@ In our model, the stellar dipole contributes the same total amount of net flux t
 
 \subsection{Anti-Aligned Initial Field with Aligned Stellar Dipole}
  
-\begin{figure}[h!]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.6\columnwidth]{figs/figsChapter3/run3100/MST1.png}
+\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run3100/MST1.png}
 \caption{The}
 \label{fiStExample}
 \end{figure}
@@ -284,9 +284,9 @@ Choosing the initial magnetic field is not obvious.  Is the DZ usually in the de
 
 We will now demonstrate this numerically using our model.  The results of this test can be very biased by which direction we choose to start the stellar dipole.  In order to avoid this, we will start with a very weak dipole field that ramps up to more realistic values linearly over time.  Under these conditions the disk does not particularly care whether the dipole was initiated positive or negative.  The following figure shows that the stellar dipole field causes the field to eventually be in the anti-aligned direction as the dipole field strength ramps up.  Thus, in future calculations we will initialize the field with $B_z$ in the anti-aligned direction.    
 
-\begin{figure}[h!]
+\begin{figure}[p]
 \centering
-\includegraphics[width=0.8\columnwidth]{figs/figsChapter3/run3077/MST1.png}
+\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run3077/MST1.png}
 \caption{The}
 \label{fiStExample}
 \end{figure}
@@ -298,7 +298,7 @@ We will now demonstrate this numerically using our model.  The results of this t
 
 
 \section{Disks around small stars}
-In this section we consider disks around small stars that will have no radii for which the midplane temperature exceeds 800K, and therefore will have a Hall dead zone all the way to the truncation radius.  This case is qualitatively different because the stellar dipole can contribute flux directly into the DZ without diffusion, although diffusion will still play a role.  
+In this section we consider disks around small stars that will have no radii for which the mid-plane temperature exceeds 800K, and therefore will have a Hall dead zone all the way to the truncation radius.  This case is qualitatively different because the stellar dipole can contribute flux directly into the DZ without diffusion, although diffusion will still play a role.  
 
  
  
@@ -330,7 +330,7 @@ The qualitative features of the outbursts generated by this mechanism depend pri
 
 Several important conclusions:
 \begin{enumerate}
-\item{Hall dominated regions of the disk that are under the influence of a stellar magnetic cycle preferencially keep net magnetic field in the direction such that the dead zone is dead.}
+\item{Hall dominated regions of the disk that are under the influence of a stellar magnetic cycle preferentially keep net magnetic field in the direction such that the dead zone is dead.}
 \item{}
 \item{}
 \end{enumerate}
