@@ -12,7 +12,6 @@ We present modeling of a new mechanism for episodic accretion events in protopla
 
 
 
-\newpage
 \section{Introduction}
 The interaction between the stellar magnetosphere and accretion disk around a young star has been considered in several contexts.  One context that has not been well explored is the effect of the stellar dipole contribution to the net-field within the disk.  This is important as several recent studies have shown that the presence net vertical field in an accretion disk can enhance the MRI and drive faster accretion.  In addition, the alignment of the net field has been shown to have an interesting interaction with a Hall Dead Zone.   
 
@@ -38,11 +37,9 @@ The paper is organized as follows: In section 2 we describe the model that we wi
 
 
 
-\newpage
 \section{The Model}
 \label{1dmodel}
 We develop a model using a mean-field approach that self-consistently evolves the net magnetic field and surface density of a turbulent accretion disc.     
-
 
 
 \subsection{Static Equations} 
@@ -88,7 +85,6 @@ Lastly, $\rho$ can be written as
 Equations 1-9 form a system of 9 equations and 9 unknowns: $c_s, T_c, h, \nu, \Sigma, T_d, \tau, \kappa_R, \rho$.  If $\alpha$ and $\dot{m}$ can be specified a-priori and $\kappa_R$ is given by a power law of $\rho$ and $T_c$, these equations have analytic solutions and the system can be solved self-consistently.  This is, essentially, the familiar problem solved by \cite{shakura73}.  
 
 
-
 \subsection{Coupling MRI Turbulence to the Net Magnetic Field } 
 For a disk with a Hall-effect-dominated dead zone, the turbulence in the disk is coupled to the net magnetic field.  Non-ideal MHD simulations of the MRI of this case have shown that the space-time averaged $\alpha$ value in the case of a net field aligned with the spin axis is $\sim 0.01$ to $0.1$.  However, in the case that the field is anti-aligned with the spin axis the MRI is suppressed more significantly and $\alpha \sim 4 \times 10^{-4}$.  
 
@@ -120,7 +116,6 @@ v\frac{\partial \Sigma}{\partial t} =
 where $\Sigma$ is the surface density.  
 
 
-
 \subsection{Net Magnetic Field Evolution} 
 \label{bEvo}
 We will follow \cite{lubow93} to time-evolve the poloidal and radial components of the magnetic field in a turbulent disc.  The magnetic potential $\psi$ is defined by 
@@ -150,7 +145,6 @@ Pr_{\text{eff}} = \frac{v_{\text{adv}}}{v_{\text{diff}}} = \frac{3}{2} \frac{h}{
 Note that diffusion is faster than advection by a factor of $(h/r)^{-1}$ (the familiar result from \cite{lubow93}).  Thin disks diffuse field outward, thick disks accrete field inward.
 
 
-
 \subsection{Evolving the Model Self-Consistently}
 We now have time evolution equations for the surface density and magnetic field that depend on the statically-solvable variables. 
 Our time-evolution scheme is as follows:
@@ -165,24 +159,19 @@ Our time-evolution scheme is as follows:
 
 
 
-\newpage
 \section{Numerical Methods}
-
 
 
 \subsection{Spatial Discretization}
 The domain I'm currently testing on extends from $r=0.75$ to $r=600$ and has 400 grid points spaced logarithmically. 
 
 
-
 \subsection{Boundary Conditions}
 The transport velocities follow the equations given in the previous section between $r=1$ and $r=500$ and smoothly go to zero at the boundaries.  
 
 
-
 \subsection{Smoothing $\alpha$}
 Physically, it is reasonable that the turbulence in the disk spreads from one radii to another on a scale of roughly $\sim h$.  We use an smoothing procedure such that alpha is slightly non-local on this scale. 
-
 
 
 \subsection{Advancing in Time}
@@ -192,7 +181,6 @@ The system is solved in an RK4 fashion.  The time step is dynamic and is calcula
 
 
 
-\newpage
 \section{Modeling the Influence of the Stellar Magnetic Cycle on the Disk}
 We consider the interaction of a stellar dipole magnetic field with the inner region of a turbulent accretion disk. Interior to the stellar magnetosphere radius $r_{\text{ms}}$, the stellar field is strong enough that the magnetic torque exerted on the gas drives accretion faster than turbulent viscosity.  This is effectively where the disk is truncated and is usually very close to the co-rotation radius $r_{\text{co}}$, defined to be where the stellar angular velocity (and therefore the angular velocity of stellar magnetic field lines) is equal to the Keplerian angular velocity.  These two radii of interest are given by
 
@@ -222,7 +210,6 @@ The stellar magnetic cycle causes the dipole field to vary in strength in a roug
 
 
 
-\newpage
 \section{Location of the Ideal MHD to Hall MHD Transition}
 The start of the dead zone occurs at the radius where the disk becomes too cool to be thermally ionized.  At this point the gas is in the Hall MHD regime and a Hall dead zone will exist.  This transition happens roughly at 800K.  Modeling the temperature profile of a disk is difficult, and different models can arrive at quite different profiles.  A large part of this uncertainty is due to the uncertainty in the dust fraction and distribution in the disk.  We will consider a variety of radii for the start of the Hall dead zone ranging from the inner boundary of the disk itself out to a few AU, with different cases being valid for different stellar masses and accretion rates.        
 
@@ -237,14 +224,12 @@ The Chiang-Goldreich model is more sophisticated, accounting for incident radiat
 \label{fiStExample}
 \end{figure}
 
-
 We will model the location of the start of the dead zone as static.  A more advanced model could dynamically calculate the location where $T=800$K and change the transport velocities accordingly, but this is difficult to do self consistently.  In addition, temperature by nature does not change as drastically as other quantities, so assuming this to be static is not completely unreasonable assumption.
 
 
 
 
 
-\newpage
 \section{A Simple Experiment: Turning the Dead Zone On and Off}
 We will first consider a few simple test cases which will help us understand the more complicated cases later with the solar cycle turned on.  We will start with a roughly steady state net-field in the disk and then turn on the stellar dipole.  After half a cycle of driving (only in one direction), we will shut off the stellar dipole.  We will vary the polarity and strength of the initial and driving fields to demonstrate the relevant effects. 
 
