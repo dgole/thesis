@@ -11,7 +11,7 @@ We present modeling of a new mechanism for episodic accretion events in protopla
 
 
 
-
+\newpage
 \section{Introduction}
 The interaction between the stellar magnetosphere and accretion disk around a young star has been considered in several contexts.  One context that has not been well explored is the effect of the stellar dipole contribution to the net-field within the disk.  This is important as several recent studies have shown that the presence net vertical field in an accretion disk can enhance the MRI and drive faster accretion.  In addition, the alignment of the net field has been shown to have an interesting interaction with a Hall Dead Zone.   
 
@@ -36,7 +36,7 @@ The paper is organized as follows: In section 2 we describe the model that we wi
 
 
 
-
+\newpage
 \section{The Model}
 \label{1dmodel}
 We develop a model using a mean-field approach that self-consistently evolves the net magnetic field and surface density of a turbulent accretion disc.     
@@ -158,10 +158,8 @@ Our time-evolution scheme is as follows:
 
 
 
-
+\newpage
 \section{Numerical Methods}
-
-
 \subsection{Spatial Discretization}
 The domain I'm currently testing on extends from $r=0.75$ to $r=600$ and has 400 grid points spaced logarithmically. 
 
@@ -180,7 +178,7 @@ The system is solved in an RK4 fashion.  The time step is dynamic and is calcula
 
 
 
-
+\newpage
 \section{Modeling the Influence of the Stellar Magnetic Cycle on the Disk}
 We consider the interaction of a stellar dipole magnetic field with the inner region of a turbulent accretion disk. Interior to the stellar magnetosphere radius $r_{\text{ms}}$, the stellar field is strong enough that the magnetic torque exerted on the gas drives accretion faster than turbulent viscosity.  This is effectively where the disk is truncated and is usually very close to the co-rotation radius $r_{\text{co}}$, defined to be where the stellar angular velocity (and therefore the angular velocity of stellar magnetic field lines) is equal to the Keplerian angular velocity.  These two radii of interest are given by
 
@@ -209,7 +207,7 @@ The stellar magnetic cycle causes the dipole field to vary in strength in a roug
 
 
 
-
+\newpage
 \section{Location of the Ideal MHD to Hall MHD Transition}
 The start of the dead zone occurs at the radius where the disk becomes too cool to be thermally ionized.  At this point the gas is in the Hall MHD regime and a Hall dead zone will exist.  This transition happens roughly at 800K.  Modeling the temperature profile of a disk is difficult, and different models can arrive at quite different profiles.  A large part of this uncertainty is due to the uncertainty in the dust fraction and distribution in the disk.  We will consider a variety of radii for the start of the Hall dead zone ranging from the inner boundary of the disk itself out to a few AU, with different cases being valid for different stellar masses and accretion rates.        
 
@@ -229,17 +227,13 @@ We will model the location of the start of the dead zone as static.  A more adva
 
 
 
-
+\newpage
 \section{A Simple Experiment: Turning the Dead Zone On and Off}
 We will first consider a few simple test cases which will help us understand the more complicated cases later with the solar cycle turned on.  We will start with a roughly steady state net-field in the disk and then turn on the stellar dipole.  After half a cycle of driving (only in one direction), we will shut off the stellar dipole.  We will vary the polarity and strength of the initial and driving fields to demonstrate the relevant effects. 
 
 
-\subsection{Stellar dipole with the same polarity as the initial disk field}
-These cases are relatively straightforward diffusion, but the assymetry between the two tests is important.
-
-For the aligned disk field and aligned stellar dipole, the Hall DZ is in the active state and stays that way, so transport velocities are relatively high.  The additional field from the stellar dipole is transported outward smoothly and rather quickly to larger radii.  
-
-For the anti-aligned disk field and anti-aligned stellar dipole, the Hall DZ is in the dead state and remains that way.  This causes the transport velocities in this region to be much smaller than in the interior region.  The anti-aligned field contributed by the star is easily diffused to the inner edge of the DZ, but then builds up there as it makes it's way out into the DZ much more slowly.
+\subsection{Stellar Dipole with the same Polarity as the Initial Disk Field}
+These two cases are relatively straightforward diffusion, but the asymmetry between the two tests is important.  For the aligned disk field and aligned stellar dipole, the Hall DZ is in the active state and stays that way, so transport velocities are relatively high.  The additional field from the stellar dipole is transported outward smoothly and rather quickly to larger radii.  For the anti-aligned disk field and anti-aligned stellar dipole, the Hall DZ is in the dead state and remains that way.  This causes the transport velocities in this region to be much smaller than in the interior region.  The anti-aligned field contributed by the star is easily diffused to the inner edge of the DZ, but then builds up there as it makes it's way out into the DZ much more slowly.
 
 \begin{figure}[p]
 \centering
@@ -249,7 +243,7 @@ For the anti-aligned disk field and anti-aligned stellar dipole, the Hall DZ is 
 \label{fiStExample}
 \end{figure}
 
- 
+\newpage 
 \subsection{Aligned Initial Field with Anti-Aligned Stellar Dipole}
 In this case, the Hall DZ transitions from active to dead.  The extent of the Hall DZ that can be turned is limited primarily by 2 factors:
 \begin{enumerate}
@@ -265,7 +259,7 @@ In our model, the stellar dipole contributes the same total amount of net flux t
 \label{fiStExample}
 \end{figure}
  
-
+\newpage
 \subsection{Anti-Aligned Initial Field with Aligned Stellar Dipole}
  
 \begin{figure}[p]
@@ -278,8 +272,8 @@ In our model, the stellar dipole contributes the same total amount of net flux t
 
 
  
- 
-\section{A preference for anti-aligned field}
+\newpage
+\section{A preference for Anti-Aligned Field}
 Choosing the initial magnetic field is not obvious.  Is the DZ usually in the dead state with small bursts of activity caused by the stellar dipole oscillation?  Or is the DZ usually in the active state with intervening dead states caused by the stellar dipole oscillation?  We argue that, under the influence of the oscillating stellar dipole, the net magnetic field in the Hall DZ prefers to be in the anti-aligned direction such that the DZ is in the dead state, barring a strong field in the opposite direction that is inherent to the disk at formation.  This can be understood intuitively.  While in the dead state, net-field transport velocities are slow and the anti-aligned net-field is slow to diffuse away.  While in the active state, transport velocities are high and the aligned net-field is quick to diffuse away.  Due to this asymmetry in transport velocities, the DZ preferentially holds on to the anti-aligned field.
 
 We will now demonstrate this numerically using our model.  The results of this test can be very biased by which direction we choose to start the stellar dipole.  In order to avoid this, we will start with a very weak dipole field that ramps up to more realistic values linearly over time.  Under these conditions the disk does not particularly care whether the dipole was initiated positive or negative.  The following figure shows that the stellar dipole field causes the field to eventually be in the anti-aligned direction as the dipole field strength ramps up.  Thus, in future calculations we will initialize the field with $B_z$ in the anti-aligned direction.    
@@ -296,28 +290,28 @@ We will now demonstrate this numerically using our model.  The results of this t
 
 
 
-
+\newpage
 \section{Disks around small stars}
 In this section we consider disks around small stars that will have no radii for which the mid-plane temperature exceeds 800K, and therefore will have a Hall dead zone all the way to the truncation radius.  This case is qualitatively different because the stellar dipole can contribute flux directly into the DZ without diffusion, although diffusion will still play a role.  
 
  
  
  
-
+\newpage
 \section{Flux Limited}
 a
 
 
 
 
-
+\newpage
 \section{Observable Features and Comparison to Observed Phenomena}
 a
 
 
 
 
-
+\newpage
 \section{Conclusions and Discussion}
 We have modeled a mechanism that produces episodic accretion events in protoplanetary disks, similar in nature to observed EXors.  This mechanism is contingent on several features of these disks and their host stars:
 \begin{enumerate}
