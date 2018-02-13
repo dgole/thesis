@@ -300,7 +300,7 @@ Choosing the initial conditions for a cyclical system is difficult, but Figure \
 
 The luminosity shown in the figure is normalized such that $L=1$ when the stellar cycle first turns on.  At this point, the disk is in a roughly steady state and the dead zone is in the dead state.  After this point, the dead state luminosity is less than 1.  This is because the state advection time is shorter in the active state than the dead state.  So during the first few cycles the active states accrete most of the excess mass in the inner disk.  The surface density would return to the original profile during the dead state if given enough time, but for most reasonable parameters the dead-state advection time is much longer than the period of the stellar cycle.  In summary, the active state accretes mass faster than the dead state can replenish it.
 
-Figure \ref{figStSmallStarShorter} demonstrates the qualities and physical intuition behind a single outburst.  At zeroth order, the disk is in the outbursting state for about a quarter of the stellar cycle, about 5 years for a sun-like cycle.   
+Figure \ref{figStSmallStarShorter} demonstrates the phases of a a single outburst.  At zeroth order, the disk is in the outbursting state for about a quarter of the stellar cycle, about 5 years for a sun-like cycle.   
 
 
 \begin{figure}[p]
@@ -312,24 +312,40 @@ Figure \ref{figStSmallStarShorter} demonstrates the qualities and physical intui
 
 \begin{figure}[p]
 \centering
-\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run10242/MST1_shorter.png}
-\caption{The}
+\includegraphics[width=0.98\columnwidth]{figs/figsChapter3/run10242/MST1_annotated.png}
+\caption{The same quantities as the previous figure, plotted for a single, demonstrative stellar cycle.  The dashed blue/red lines note when the star starts contributing aligned/anti-aligned net flux to the disk.  The black lines note the peaks/troughs of the stellar cycle, when the star stops actively contributing net-flux. }
 \label{figStSmallStarShorter}
 \end{figure}
 
 We show that the amplitude of outbursts is roughly $\alpha_{\text{AZ}}/\alpha_{\text{DZ}}.
-
-Outbursts generally start when the aligned field has been fully 
- 
- 
 
 
 
 
 
 \newpage
+\section{Disks around Sun-like Stars}
+
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.7\columnwidth]{figs/figsChapter3/run20022/MST1_.png}
+\caption{Space-time diagrams of the net-vertical magnetic field, $\alpha$-parameter, surface density, and an integrated light curve.  This demonstrates how our model approaches a steady cycle from the initial conditions.}
+\label{figStSmallStarLong}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\includegraphics[width=0.98\columnwidth]{figs/figsChapter3/run20022/MST1_shorter.png}
+\caption{The same quantities as the previous figure, plotted for a single, demonstrative stellar cycle.  The dashed blue/red lines note when the star starts contributing aligned/anti-aligned net flux to the disk.  The black lines note the peaks/troughs of the stellar cycle, when the star stops actively contributing net-flux. }
+\label{figStSmallStarShorter}
+\end{figure}
+
+
+
+\newpage
 \section{Observable Features and Comparison to Observed Phenomena}
-a
+A major difficulty in pinning down the process or processes that drive Exors and FUors are the wide range of properties that each can exhibit.  
 
 
 
@@ -339,7 +355,7 @@ a
 We have modeled a mechanism that produces episodic accretion events in protoplanetary disks, similar in nature to observed EXors.  This mechanism is contingent on several features of these disks and their host stars:
 \begin{enumerate}
 \item{Hall dead zones exist in the inner disk ($\sim 0.1$ AU to $\sim 1$ AU) and suppress MRI turbulence only if the vertical magnetic field is anti-aligned with the spin axis. }
-\item{The host star undergoes magnetic cycles in which the dipole-like field changes direction periodically.  This stellar field is able to leak into the very inner part of the disk ($\sim 0.01$ AU) significantly enough to dominate over any existing background field.}
+\item{The host star undergoes magnetic cycles in which the dipole-like field changes direction periodically.  This stellar field is able to leak into the very inner part of the disk ($\sim 0.1$ AU) significantly enough to dominate over any existing background field.}
 \item{Thin disks efficiently diffuse magnetic field outward, allowing this stellar field to reach the Hall dead zone.}
 \end{enumerate}
 
